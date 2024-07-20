@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import { getULinkProps } from '#ui/utils'
-import type { FooterLink } from '#ui-pro/types'
+import type { FooterLink } from '#sse-nui/types'
 
 const appConfig = useAppConfig()
 

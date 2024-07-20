@@ -40,7 +40,7 @@
 import type { PropType } from "vue";
 import { twMerge } from "tailwind-merge";
 import { getULinkProps } from "#ui/utils";
-import type { AsideLink } from "#ui-pro/types";
+import type { AsideLink } from "#sse-nui/types";
 
 const appConfig = useAppConfig();
 

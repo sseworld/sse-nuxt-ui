@@ -76,7 +76,7 @@
 import type { PropType } from 'vue'
 import { Dialog, DialogPanel, TransitionRoot, provideUseId } from '@headlessui/vue'
 import { getSlotChildrenText } from '../../lib/slots'
-import type { HeaderLink } from '#ui-pro/types'
+import type { HeaderLink } from '#sse-nui/types'
 import { useId } from '#imports'
 
 const appConfig = useAppConfig()

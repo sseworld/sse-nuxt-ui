@@ -22,7 +22,7 @@
 import type { PropType } from 'vue'
 import { twMerge } from 'tailwind-merge'
 import { getULinkProps } from '#ui/utils'
-import type { HeaderPopoverLink } from '#ui-pro/types'
+import type { HeaderPopoverLink } from '#sse-nui/types'
 
 const appConfig = useAppConfig()
 

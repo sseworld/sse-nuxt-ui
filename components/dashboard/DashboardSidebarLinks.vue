@@ -84,7 +84,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, provideUseId } from '@he
 import { twMerge, twJoin } from 'tailwind-merge'
 import { getULinkProps } from '#ui/utils'
 import type { ChipColor } from '#ui/types'
-import type { DashboardSidebarLink } from '#ui-pro/types'
+import type { DashboardSidebarLink } from '#sse-nui/types'
 import { useId } from '#imports'
 
 const appConfig = useAppConfig()
