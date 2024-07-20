@@ -24,22 +24,22 @@ You can get started with our [minimal starter](https://github.com/nuxt-ui-pro/st
 
 ```bash
 # npm
-npm install @nuxt/ui-pro
+npm install @sseui/nuxt
 # yarn
-yarn add @nuxt/ui-pro
+yarn add @sseui/nuxt
 # pnpm
-pnpm add @nuxt/ui-pro
+pnpm add @sseui/nuxt
 # bun
-bun add @nuxt/ui-pro
+bun add @sseui/nuxt
 ```
 
-Note that `@nuxt/ui-pro` will also install [`@nuxt/ui`](https://ui.nuxt.com) as dependency to your project.
+Note that `@sseui/nuxt` will also install [`@nuxt/ui`](https://ui.nuxt.com) as dependency to your project.
 
 Next, add it to your `nuxt.config.ts` in the `extends` property:
 
 ```ts
 export default defineNuxtConfig({
-  extends: ['@nuxt/ui-pro'],
+  extends: ['@sseui/nuxt'],
   modules: ['@nuxt/ui']
 })
 ```
@@ -82,11 +82,11 @@ When using the [Nuxt Devtools](https://devtools.nuxt.com), you can see the list 
 ![nuxt-ui-pro-devtools](https://github.com/nuxt/ui-pro/assets/904724/4ec2862e-91a0-4ae1-9458-264983d39b6e)
 
 <!-- Badges -->
-<!-- [npm-version-src]: https://img.shields.io/npm/v/@nuxt/ui-pro/latest.svg?style=flat&colorA=020420&colorB=00DC82 -->
+<!-- [npm-version-src]: https://img.shields.io/npm/v/@sseui/nuxt/latest.svg?style=flat&colorA=020420&colorB=00DC82 -->
 <!-- [npm-version-href]: https://npmjs.com/package/@sseui/nuxt -->
 
-<!-- [npm-downloads-src]: https://img.shields.io/npm/dm/@nuxt/ui-pro.svg?style=flat&colorA=020420&colorB=00DC82 -->
-<!-- [npm-downloads-href]: https://npmjs.com/package/@nuxt/ui-pro -->
+<!-- [npm-downloads-src]: https://img.shields.io/npm/dm/@sseui/nuxt.svg?style=flat&colorA=020420&colorB=00DC82 -->
+<!-- [npm-downloads-href]: https://npmjs.com/package/@sseui/nuxt -->
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js
 [nuxt-href]: https://nuxt.com
