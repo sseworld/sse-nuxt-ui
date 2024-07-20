@@ -23,10 +23,10 @@
 import type { PropType } from 'vue'
 import { twJoin } from 'tailwind-merge'
 import type { AccordionItem } from '#ui/types'
-import type { NavigationTree } from '#sse-nui/types'
+import type { NavigationTree } from '@/types'
 import { accordion as accordionConfig } from '#ui/ui.config'
 
-const appConfig = useAppConfig()
+const appConfig = useAppConfig() as any
 
 const config = computed(() => {
     const wrapper: string = twJoin(

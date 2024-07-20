@@ -76,10 +76,10 @@
 import type { PropType } from 'vue'
 import { Dialog, DialogPanel, TransitionRoot, provideUseId } from '@headlessui/vue'
 import { getSlotChildrenText } from '../../lib/slots'
-import type { HeaderLink } from '#sse-nui/types'
+import type { HeaderLink } from '@/types'
 import { useId } from '#imports'
 
-const appConfig = useAppConfig()
+const appConfig = useAppConfig() as any
 
 const config = computed(() => ({
     wrapper: 'bg-background/75 backdrop-blur border-b border-gray-200 dark:border-gray-800 -mb-px sticky top-0 z-50',

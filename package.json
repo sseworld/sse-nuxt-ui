@@ -2,12 +2,30 @@
   "name": "@sseui/nuxt",
   "private": true,
   "type": "module",
+  "packageManager": "npm@10.8.1",
+  "main": "./nuxt.config.ts",
+  "files": [
+    "app",
+    "assets",
+    "components",
+    "composables",
+    "lib",
+    "modules",
+    "plugins",
+    "types",
+    "app.config.ts",
+    "nuxt.config.ts",
+    "tailwind.config.ts"
+  ],
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "dev": "DEV=true nuxi dev .docs",
+    "build": "DEV=true nuxi generate .docs",
+    "play": "nuxi dev .playground",
+    "prepare": "DEV=true nuxi prepare .docs",
+    "lint": "eslint .",
+    "typecheck": "nuxi typecheck",
+    "release": "release-it",
+    "test": "TZ=Europe/Paris vitest"
   },
   "dependencies": {
     "@nuxt/ui": "^2.17.0",
@@ -38,5 +56,8 @@
     "vitest-environment-nuxt": "^1.0.0",
     "vue-tsc": "^2.0.26",
     "zod": "^3.23.8"
+  },
+  "resolutions": {
+    "@sseui/nuxt": "workspace:*"
   }
 }

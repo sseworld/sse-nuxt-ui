@@ -16,14 +16,14 @@ import { defu } from 'defu'
 import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
 import type { ParsedContent, NavItem, MarkdownNode } from '@nuxt/content'
 import type { Group, Command } from '#ui/types'
-import type { ContentSearchLink } from '#sse-nui/types'
+import type { ContentSearchLink } from '@/types'
 import type { UseFuseOptions } from '@vueuse/integrations/useFuse'
 
 defineOptions({
     inheritAttrs: false
 })
 
-const appConfig = useAppConfig()
+const appConfig = useAppConfig() as any
 
 const config = computed(() => ({
     padding: 'p-0 sm:p-4',

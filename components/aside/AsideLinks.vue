@@ -40,9 +40,10 @@
 import type { PropType } from "vue";
 import { twMerge } from "tailwind-merge";
 import { getULinkProps } from "#ui/utils";
-import type { AsideLink } from "#sse-nui/types";
+import type { AsideLink } from "@/types";
+import { useUI } from "@/composables/useUi"
 
-const appConfig = useAppConfig();
+const appConfig = useAppConfig() as any;
 
 const config = computed(() => ({
   wrapper: "space-y-3 mb-3 lg:mb-6 -mx-1 lg:mx-0",
@@ -83,11 +84,13 @@ const props = defineProps({
   },
 });
 
-const { ui, attrs } = useUI(
-  "aside.links",
-  toRef(props, "ui"),
-  config,
-  toRef(props, "class"),
-  true
-);
+const options = {
+  prefix: "aside.links",
+  uiProps: toRef(props, "ui"),
+  defaultConfig: config,
+  classProps: toRef(props, "class"),
+  mergeAttrs: true
+}
+
+const { ui, attrs } = useUI(options);
 </script>

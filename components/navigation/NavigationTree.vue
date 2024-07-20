@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import type { NavigationGroup, NavigationTree } from '#sse-nui/types'
+import type { NavigationGroup, NavigationTree } from '@/types'
 
 const config = {
     wrapper: 'space-y-3',

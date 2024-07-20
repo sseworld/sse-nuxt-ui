@@ -24,7 +24,7 @@ import type { PropType } from 'vue'
 import colors from '#tailwind-config/theme/colors'
 import uiColors from '#ui-colors'
 
-const appConfig = useAppConfig()
+const appConfig = useAppConfig() as any
 
 const config = computed(() => ({
     wrapper: 'relative group overflow-hidden flex items-center rounded-lg',

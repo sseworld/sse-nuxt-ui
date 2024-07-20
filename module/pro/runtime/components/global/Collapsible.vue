@@ -16,7 +16,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, provideUseId } from '@headlessui/vue'
 import { useId } from '#imports'
 
-const appConfig = useAppConfig()
+const appConfig = useAppConfig() as any
 
 const config = computed(() => ({
     button: {

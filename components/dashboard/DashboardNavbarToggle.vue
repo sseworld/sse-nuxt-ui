@@ -4,7 +4,7 @@
 </template>
 
 <script setup lang="ts">
-const appConfig = useAppConfig()
+const appConfig = useAppConfig() as any
 
 const isOpen = inject<boolean | undefined>('isOpen', undefined)
 </script>

@@ -159,7 +159,7 @@ const props = defineProps({
     }
 })
 
-const appConfig = useAppConfig()
+const appConfig = useAppConfig() as any
 
 const config = computed(() => {
     const base = twJoin(

@@ -21,7 +21,7 @@ defineOptions({
     inheritAttrs: false
 })
 
-const appConfig = useAppConfig()
+const appConfig = useAppConfig() as any
 
 const config = computed(() => ({
     padding: 'p-0 sm:p-4',

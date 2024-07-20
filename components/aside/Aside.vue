@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import type { PropType } from "vue";
-import type { AsideLink } from "#sse-nui/types";
+import type { AsideLink } from "@/types";
 
 const config = {
   wrapper:

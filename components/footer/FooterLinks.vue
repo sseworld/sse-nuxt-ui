@@ -14,9 +14,9 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import { getULinkProps } from '#ui/utils'
-import type { FooterLink } from '#sse-nui/types'
+import type { FooterLink } from '@/types'
 
-const appConfig = useAppConfig()
+const appConfig = useAppConfig() as any
 
 const config = computed(() => ({
     wrapper: 'flex flex-col md:flex-row items-center justify-center gap-4 lg:gap-6',

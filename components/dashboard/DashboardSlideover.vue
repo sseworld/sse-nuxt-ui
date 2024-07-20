@@ -28,7 +28,7 @@ import type { PropType } from 'vue'
 import { slideover as slideoverConfig } from '#ui/ui.config'
 import type { Button } from '#ui/types'
 
-const appConfig = useAppConfig()
+const appConfig = useAppConfig() as any
 
 const config = computed(() => ({
     header: {

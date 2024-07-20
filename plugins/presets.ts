@@ -7,7 +7,7 @@ interface AppConfig extends NuxtAppConfig {
   }
 
 export default defineNuxtPlugin(() => {
-    const appConfig = useAppConfig() as AppConfig;
+    const appConfig = useAppConfig() as any as AppConfig;
 
     return {
         provide: {

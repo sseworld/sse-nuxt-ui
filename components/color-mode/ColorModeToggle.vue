@@ -16,7 +16,7 @@ defineOptions({
 })
 
 const colorMode = useColorMode()
-const appConfig = useAppConfig()
+const appConfig = useAppConfig() as any
 
 // Computed
 

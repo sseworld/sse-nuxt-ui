@@ -35,9 +35,9 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import { getULinkProps } from '#ui/utils'
-import type { HeaderLink } from '#sse-nui/types'
+import type { HeaderLink } from '@/types'
 
-const appConfig = useAppConfig()
+const appConfig = useAppConfig() as any
 
 const config = computed(() => ({
     wrapper: 'flex items-center gap-x-8',
