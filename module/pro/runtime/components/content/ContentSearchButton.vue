@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-const appConfig = useAppConfig() as any
+const appConfig = useAppConfig()
 const { toggleContentSearch } = useUIState()
 const { metaSymbol } = useShortcuts()
 

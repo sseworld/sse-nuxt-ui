@@ -30,9 +30,9 @@
 import type { PropType } from 'vue'
 import { twMerge } from 'tailwind-merge'
 import { getULinkProps } from '#ui/utils'
-import type { PageLink } from '@/types'
+import type { PageLink } from '#sse-nui/types'
 
-const appConfig = useAppConfig() as any
+const appConfig = useAppConfig()
 
 const config = computed(() => ({
     wrapper: 'space-y-3',

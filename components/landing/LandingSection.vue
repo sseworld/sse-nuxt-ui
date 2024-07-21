@@ -84,7 +84,7 @@ import type { PropType } from 'vue'
 import { twJoin, twMerge } from 'tailwind-merge'
 import type { Button } from '#ui/types'
 
-const appConfig = useAppConfig() as any
+const appConfig = useAppConfig()
 
 defineOptions({
     inheritAttrs: false

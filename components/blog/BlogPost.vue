@@ -62,7 +62,7 @@
 import type { PropType } from 'vue'
 import { twJoin } from 'tailwind-merge'
 import { nuxtLinkProps, getNuxtLinkProps } from '#ui/utils'
-import { getSlotChildrenText } from '../../lib/slots'
+import { getSlotChildrenText } from '#sse-nui/lib/slots'
 import type { Avatar, Badge } from '#ui/types'
 import type { NuxtLinkProps } from '#app'
 
@@ -146,15 +146,7 @@ const config = computed(() => {
     }
 })
 
-const options = {
-  prefix: "blog.post",
-  uiProps: toRef(props, "ui"),
-  defaultConfig: config,
-  classProps: toRef(props, "class"),
-  mergeAttrs: true
-}
-
-const { ui, attrs } = useUI(options)
+const { ui, attrs } = useUI("blog.post", toRef(props, "ui"), config, toRef(props, "class"), true)
 
 const nuxtLinkBind = computed(() => getNuxtLinkProps(props))
 const ariaLabel = computed(() => (props.title || (slots.title && getSlotChildrenText(slots.title())) || 'Post link').trim())

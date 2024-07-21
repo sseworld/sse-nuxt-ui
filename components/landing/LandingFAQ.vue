@@ -24,7 +24,7 @@
 import type { PropType } from 'vue'
 import type { AccordionItem } from '#ui/types'
 
-const appConfig = useAppConfig() as any
+const appConfig = useAppConfig()
 
 const config = computed(() => ({
     wrapper: 'divide-y divide-gray-200 dark:divide-gray-800 -mt-6',

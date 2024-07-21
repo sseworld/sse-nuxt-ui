@@ -47,7 +47,7 @@ import { twMerge } from 'tailwind-merge'
 import { modal as modalConfig } from '#ui/ui.config'
 import type { Button } from '#ui/types'
 
-const appConfig = useAppConfig() as any
+const appConfig = useAppConfig()
 const slots = useSlots()
 
 const config = computed(() => ({

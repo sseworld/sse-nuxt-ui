@@ -22,9 +22,9 @@
 import type { PropType } from 'vue'
 import { twMerge } from 'tailwind-merge'
 import { getULinkProps } from '#ui/utils'
-import type { HeaderPopoverLink } from '@/types'
+import type { HeaderPopoverLink } from '#sse-nui/types'
 
-const appConfig = useAppConfig() as any
+const appConfig = useAppConfig()
 
 const config = computed(() => ({
     wrapper: 'p-2 space-y-1',

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const appConfig = useAppConfig() as any
+const appConfig = useAppConfig()
 
 const config = computed(() => ({
     wrapper: 'scroll-mt-[calc(48px+32px+var(--header-height))] lg:scroll-mt-[calc(32px+var(--header-height))]',

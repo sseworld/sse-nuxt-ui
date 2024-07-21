@@ -37,13 +37,5 @@ const config = computed(() => {
     }
 })
 
-const options = {
-  prefix: "blog.list",
-  uiProps: toRef(props, "ui"),
-  defaultConfig: config,
-  classProps: toRef(props, "class"),
-  mergeAttrs: true
-}
-
-const { ui, attrs } = useUI(options)
+const { ui, attrs } = useUI("blog.list", toRef(props, "ui"), config, toRef(props, "class"), true)
 </script>

@@ -84,10 +84,10 @@ import { Disclosure, DisclosureButton, DisclosurePanel, provideUseId } from '@he
 import { twMerge, twJoin } from 'tailwind-merge'
 import { getULinkProps } from '#ui/utils'
 import type { ChipColor } from '#ui/types'
-import type { DashboardSidebarLink } from '@/types'
+import type { DashboardSidebarLink } from '#sse-nui/types'
 import { useId } from '#imports'
 
-const appConfig = useAppConfig() as any
+const appConfig = useAppConfig()
 
 const config = computed(() => ({
     wrapper: 'relative !min-h-[auto] !min-w-[auto]',

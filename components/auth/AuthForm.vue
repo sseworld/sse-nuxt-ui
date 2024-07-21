@@ -238,15 +238,7 @@ const config = computed(() => {
 
 const formRef = ref<HTMLElement>();
 
-const options = {
-  prefix: "auth.form",
-  uiProps: toRef(props, "ui"),
-  defaultConfig: config,
-  classProps: toRef(props, "class"),
-  mergeAttrs: true
-}
-
-const { ui, attrs } = useUI(options);
+const { ui, attrs } = useUI("auth.form", toRef(props, "ui"), config, toRef(props, "class"), true);
 
 const state = reactive(
   Object.values(props.fields).reduce((acc, { name, value }) => {

@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import type { FooterLink } from '@/types'
+import type { FooterLink } from '#sse-nui/types'
 
 const config = {
     wrapper: 'relative',

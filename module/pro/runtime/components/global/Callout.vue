@@ -18,7 +18,7 @@ import type { PropType } from 'vue'
 import colors from '#tailwind-config/theme/colors'
 import uiColors from '#ui-colors'
 
-const appConfig = useAppConfig() as any;
+const appConfig = useAppConfig();
 
 const config = computed(() => ({
     wrapper: 'block pl-4 pr-6 py-3 rounded-md border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm/6 my-5 last:mb-0 font-normal group relative prose-code:bg-white dark:prose-code:bg-gray-900',

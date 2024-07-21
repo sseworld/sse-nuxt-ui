@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import type { PropType } from "vue";
-import type { AsideLink } from "@/types";
+import type { AsideLink } from "#sse-nui/types";
 
 const config = {
   wrapper:
@@ -54,13 +54,5 @@ const props = defineProps({
   },
 });
 
-const options = {
-  prefix: "aside",
-  uiProps: toRef(props, "ui"),
-  defaultConfig: config,
-  classProps: toRef(props, "class"),
-  mergeAttrs: true
-}
-
-const { ui, attrs } = useUI(options);
+const { ui, attrs } = useUI("aside", toRef(props, "ui"), config, toRef(props, "class"), true);
 </script>

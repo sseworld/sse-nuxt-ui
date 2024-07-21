@@ -1,25 +1,5 @@
-import type { AppConfig as NuxtAppConfig } from "@nuxt/schema";
-
-interface AppConfig extends NuxtAppConfig {
-  ui: {
-    variables: {
-      light: {
-        background: string;
-        foreground: string;
-      };
-      dark: {
-        background: string;
-        foreground: string;
-      };
-      header: {
-        height: number;
-      };
-    };
-  };
-}
-
 export default defineNuxtPlugin(() => {
-  const appConfig = useAppConfig() as any as AppConfig;
+  const appConfig = useAppConfig();
   const nuxtApp = useNuxtApp();
 
   const root = computed(() => {
