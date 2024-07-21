@@ -25,8 +25,7 @@
     "prepare": "nuxi prepare",
     "lint": "eslint .",
     "typecheck": "nuxi typecheck",
-    "release": "release-it",
-    "test": "TZ=Europe/Paris vitest"
+    "release": "release-it"
   },
   "dependencies": {
     "@nuxt/ui": "^2.17.0",
