@@ -19,9 +19,9 @@
   ],
   "scripts": {
     "dev": "DEV=true nuxi dev .docs",
-    "build": "DEV=true nuxi generate .docs",
+    "build": "nuxi generate",
     "play": "nuxi dev .playground",
-    "prepare": "DEV=true nuxi prepare .docs",
+    "prepare": "nuxi prepare",
     "lint": "eslint .",
     "typecheck": "nuxi typecheck",
     "release": "release-it",

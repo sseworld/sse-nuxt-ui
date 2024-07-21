@@ -54,11 +54,13 @@ const props = defineProps({
   },
 });
 
-const { ui, attrs } = useUI(
-  "aside",
-  toRef(props, "ui"),
-  config,
-  toRef(props, "class"),
-  true
-);
+const options = {
+  prefix: "aside",
+  uiProps: toRef(props, "ui"),
+  defaultConfig: config,
+  classProps: toRef(props, "class"),
+  mergeAttrs: true
+}
+
+const { ui, attrs } = useUI(options);
 </script>

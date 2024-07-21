@@ -8,13 +8,10 @@ import {
   addComponentsDir,
   addPlugin,
 } from "@nuxt/kit";
-import { validateLicense } from "./license";
 import { defu } from "defu";
-
 import pkg from "../../package.json";
 
 export interface ModuleOptions {
-  license?: string;
   routerOptions?: boolean;
   content?: boolean;
   customScrollbars?: boolean;
@@ -22,14 +19,13 @@ export interface ModuleOptions {
 
 export default defineNuxtModule({
   meta: {
-    name: "ui-pro",
-    configKey: "uiPro",
+    name: "sse-nui",
+    configKey: "sseNUi",
     compatibility: {
       nuxt: "^3.10.0",
     },
   },
   defaults: {
-    license: "",
     routerOptions: undefined as boolean | undefined,
     content: false,
     customScrollbars: true,
@@ -58,7 +54,6 @@ export default defineNuxtModule({
       addPlugin({
         src: resolver.resolve("runtime/plugins/scrollbars.client.ts"),
       });
-
       nuxt.options.css.push(
         resolver.resolve("runtime/assets/css/scrollbars.css")
       );
@@ -127,31 +122,5 @@ export default defineNuxtModule({
         ).push(resolver.resolve("./runtime/components/**/*.{vue,mjs,ts}"));
       });
     }
-
-    /**
-     * License
-     */
-    const theme = pkg.theme || {
-      env: "NUXT_UI_PRO_LICENSE",
-      link: "https://ui.nuxt.com/pro",
-    };
-    const key = process.env[theme.env] || (nuxt.options as any).uiPro?.license;
-    if (nuxt.options.dev || nuxt.options._prepare || nuxt.options.test) {
-      if (nuxt.options.dev && !key) {
-        consola.box(
-          colors.greenBright("Nuxt UI Pro") +
-            "\n\n" +
-            `Missing \`${theme.env}\` env variable, please add it to your \`.env\`.` +
-            "\n\n" +
-            colors.blueBright(
-              `Purchase Nuxt UI Pro at ${theme.link} to build your app in production.`
-            )
-        );
-      }
-      return;
-    }
-    nuxt.hook("build:before", async () => {
-      await validateLicense({ key, theme, dir: nuxt.options.rootDir });
-    });
   },
 });
