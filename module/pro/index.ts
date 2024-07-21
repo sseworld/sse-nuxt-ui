@@ -1,5 +1,3 @@
-import { consola } from "consola";
-import { colors } from "consola/utils";
 import {
   createResolver,
   defineNuxtModule,
@@ -9,7 +7,6 @@ import {
   addPlugin,
 } from "@nuxt/kit";
 import { defu } from "defu";
-import pkg from "../../package.json";
 
 export interface ModuleOptions {
   routerOptions?: boolean;
