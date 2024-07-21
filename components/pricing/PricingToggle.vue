@@ -72,6 +72,5 @@ const isYearly = computed({
 })
 
 const { ui, attrs } = useUI('pricing.toggle', toRef(props, 'ui'), config, toRef(props, 'class'), true)
-
 provideUseId(() => useId())
 </script>

@@ -1,7 +1,7 @@
 // @ts-ignore
 export const getSlotChildrenText = (children) =>
   children
-    .map((node: any) => {
+    .map((node: { children: { default: () => any } }) => {
       if (!node.children || typeof node.children === "string")
         return node.children || "";
       else if (Array.isArray(node.children))

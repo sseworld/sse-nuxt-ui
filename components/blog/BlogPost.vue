@@ -146,7 +146,7 @@ const config = computed(() => {
     }
 })
 
-const { ui, attrs } = useUI("blog.post", toRef(props, "ui"), config, toRef(props, "class"), true)
+const { ui, attrs } = useUI('blog.post', toRef(props, 'ui'), config, toRef(props, 'class'), true)
 
 const nuxtLinkBind = computed(() => getNuxtLinkProps(props))
 const ariaLabel = computed(() => (props.title || (slots.title && getSlotChildrenText(slots.title())) || 'Post link').trim())

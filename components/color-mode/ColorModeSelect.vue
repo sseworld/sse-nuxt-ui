@@ -19,6 +19,7 @@ defineOptions({
 
 const colorMode = useColorMode()
 const appConfig = useAppConfig()
+
 const options = computed(() => [
     { label: 'System', value: 'system', icon: appConfig.ui.icons.system },
     { label: 'Light', value: 'light', icon: appConfig.ui.icons.light },

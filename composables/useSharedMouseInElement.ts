@@ -1,13 +1,11 @@
 import { defaultWindow, watchThrottled, unrefElement } from "@vueuse/core";
 import type { MaybeElementRef, MouseInElementOptions } from "@vueuse/core";
-import { useSharedMouse } from "./useSharedMouse"
 
 export function useSharedMouseInElement(
   target?: MaybeElementRef,
   options: MouseInElementOptions = {}
 ) {
   const { x, y } = useSharedMouse(options);
-
   const targetRef = ref(target ?? window?.document.body);
   const elementX = ref(0);
   const elementY = ref(0);
@@ -22,7 +20,6 @@ export function useSharedMouseInElement(
         }
 
         const { left, top } = el.getBoundingClientRect();
-
         const eX = x.value - (left + defaultWindow!.scrollX);
         const eY = y.value - (top + defaultWindow!.scrollY);
 
@@ -42,10 +39,5 @@ export function useSharedMouseInElement(
     );
   }
 
-  return {
-    x,
-    y,
-    elementX,
-    elementY,
-  };
+  return { x, y, elementX, elementY };
 }

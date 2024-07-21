@@ -37,5 +37,5 @@ const config = computed(() => {
     }
 })
 
-const { ui, attrs } = useUI("blog.list", toRef(props, "ui"), config, toRef(props, "class"), true)
+const { ui, attrs } = useUI('blog.list', toRef(props, 'ui'), config, toRef(props, 'class'), true)
 </script>

@@ -3,17 +3,19 @@ export default defineNuxtPlugin(() => {
   const nuxtApp = useNuxtApp();
 
   const root = computed(() => {
-    return `:root { --header-height: ${appConfig.ui.variables.header.height}
-        ${Object.entries(appConfig.ui.variables.light)
-          .map(([key, value]) => `--ui-${key}: ${value};`)
-          .join("\n")}
-    }
-    
-    .dark {
-      ${Object.entries(appConfig.ui.variables.dark)
-        .map(([key, value]) => `--ui-${key}: ${value};`)
-        .join("\n")}
-    }`;
+    return `:root {
+  --header-height: ${appConfig.ui.variables.header.height};
+
+  ${Object.entries(appConfig.ui.variables.light)
+    .map(([key, value]) => `--ui-${key}: ${value};`)
+    .join("\n")}
+}
+
+.dark {
+  ${Object.entries(appConfig.ui.variables.dark)
+    .map(([key, value]) => `--ui-${key}: ${value};`)
+    .join("\n")}
+}`;
   });
 
   // Head
