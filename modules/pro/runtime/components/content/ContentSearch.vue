@@ -18,7 +18,7 @@ import type { ParsedContent, NavItem, MarkdownNode } from '@nuxt/content'
 import type { Group, Command } from '#ui/types'
 import type { ContentSearchLink } from '#sse-nui/types'
 import type { UseFuseOptions } from '@vueuse/integrations/useFuse'
-import { findPageBreadcrumb } from '#sse-nui/module/pro/runtime/utils/content'
+import { findPageBreadcrumb } from '#sse-nui/modules/pro/runtime/utils/content'
 import { useUIState } from '~/composables/useUIState'
 
 defineOptions({
