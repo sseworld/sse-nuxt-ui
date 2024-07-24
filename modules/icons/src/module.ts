@@ -5,17 +5,18 @@ export interface ModuleOptions {}
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: "sse-nui-icons",
-    configKey: "sseNUiIcons",
+    configKey: "sseIcons",
     compatibility: {
       nuxt: "^3.10.0",
     },
   },
+  
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url);
     addComponent({
-      name: "nuxt-icon",
+      name: "sse-icon",
       global: true,
-      filePath: resolve("./runtime/components/nuxt-icon.vue"),
+      filePath: resolve("runtime/components/sse-icon.vue"),
     });
   },
 });
