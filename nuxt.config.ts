@@ -7,8 +7,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   alias: {
     "#sse-nui": resolve("./"),
-    "#sse-nui/icon": resolve("./modules/icons/"),
-    "#sse-nui/auth": resolve("./modules/auth/dist/runtime/types/index"),
+    "#sse-nui/auth": resolve("./modules/auth/runtime/types/index"),
   },
   components: [{ path: "#sse-nui/components", prefix: "U", pathPrefix: false }],
   css: ["#sse-nui/assets/css/main.css"],
