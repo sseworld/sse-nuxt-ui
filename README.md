@@ -74,3 +74,6 @@ Here are some open-source projects using Nuxt UI Pro:
 ## License
 
 [MIT](./LICENSE)
+
+## Stats
+![Alt](https://repobeats.axiom.co/api/embed/46a62c91b268650907d9e380d111c49f13585fea.svg 'Repobeats analytics image')

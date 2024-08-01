@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   alias: {
     "#sse-nui": resolve("./"),
     "#sse-nui/auth": resolve("./modules/auth/runtime/types/index"),
+    "#sse-nui/dayjs": resolve("./modules/dayjs/runtime/composables/dayjs"),
   },
   components: [{ path: "#sse-nui/components", prefix: "U", pathPrefix: false }],
   css: ["#sse-nui/assets/css/main.css"],
