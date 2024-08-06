@@ -63,7 +63,7 @@ export function useComponentMetaParser({
       continue;
     }
 
-    const filePath = resolvePathSync(component.filePath);
+    const filePath = component.filePath.startsWith('file:') ? resolvePathSync(component.filePath) : component.filePath
 
     components[component.pascalName] = {
       ...component,

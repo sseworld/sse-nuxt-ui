@@ -184,10 +184,10 @@ export default defineNuxtModule<ModuleOptions>({
       await nuxt.callHook("component-meta:extend" as any, parserOptions);
 
       // Create parser once all necessary contexts has been resolved
-      // parser = useComponentMetaParser(parserOptions);
+      parser = useComponentMetaParser(parserOptions);
 
       // Stub output in case it does not exist yet
-      // await parser.stubOutput();
+      await parser.stubOutput();
     });
 
     // Add useComponentMeta
@@ -234,11 +234,11 @@ export default defineNuxtModule<ModuleOptions>({
       "sse-component-meta.d.ts"
     );
 
-    nuxt.hook('prepare:types', ({ tsConfig, references }) => {
-        references.push({
-            path: join(nuxt.options.buildDir, 'sse-component-meta.d.ts')
-        })
-    })
+    nuxt.hook("prepare:types", ({ tsConfig, references }) => {
+      references.push({
+        path: join(nuxt.options.buildDir, "sse-component-meta.d.ts"),
+      });
+    });
 
     // Nitro setup
     nuxt.hook("nitro:config", (nitroConfig) => {

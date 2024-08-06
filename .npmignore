@@ -3,5 +3,5 @@ node_modules
 tsconfig.json
 .prettierrc
 .nuxt
-modules/og-image
+modules/meta
 # modules/icons/src

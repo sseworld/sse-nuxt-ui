@@ -28,9 +28,7 @@ export async function useComponentMeta<T>(
     }
 
     if (_componentName) {
-      return computed(
-        () => (nuxtApp._componentMeta as { [key: string]: any })[_componentName]
-      );
+      return computed(() => nuxtApp._componentMeta[_componentName]);
     }
 
     return computed(
@@ -73,9 +71,7 @@ if (process.dev) {
   // Vite
   if (import.meta.hot) {
     import.meta.hot.accept(async (newModule) => {
-      if (!newModule) return;
-
-      const newMetas = await newModule.__getComponentMeta();
+      const newMetas = await newModule?.__getComponentMeta();
 
       applyHMR(newMetas);
     });
