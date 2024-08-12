@@ -5,3 +5,4 @@ tsconfig.json
 .nuxt
 modules/meta
 # modules/icons/src
+li

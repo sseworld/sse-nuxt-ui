@@ -37,7 +37,7 @@ export default defineNuxtModule({
         );
         if (options.routerOptions === undefined && customRouterOptions) {
           console.warn(
-            `You seem to have a custom router.options file \`${customRouterOptions.path}\`\nThe scrollBehavior will be overriden with ui-pro own router.options unless you set \`uiPro: { routerOptions: false }\` in your nuxt.config\nSet \`uiPro: { routerOptions: true }\` to disable this warning`
+            `You seem to have a custom router.options file \`${customRouterOptions.path}\`\nThe scrollBehavior will be overriden with ui-pro own router.options unless you set \`sseNUi: { routerOptions: false }\` in your nuxt.config\nSet \`uiPro: { routerOptions: true }\` to disable this warning`
           );
         }
         files.push({
@@ -51,6 +51,7 @@ export default defineNuxtModule({
       addPlugin({
         src: resolver.resolve("runtime/plugins/scrollbars.client.ts"),
       });
+
       nuxt.options.css.push(
         resolver.resolve("runtime/assets/css/scrollbars.css")
       );

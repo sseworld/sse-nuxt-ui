@@ -194,13 +194,13 @@ export default defineNuxtModule<ModuleOptions>({
     addImportsDir(resolver.resolve("./runtime/composables"));
 
     addTemplate({
-      filename: "sse-component-meta.mjs",
+      filename: "component-meta.mjs",
       getContents: () => "export default {}",
       write: true,
     });
 
     addTemplate({
-      filename: "sse-component-meta.d.ts",
+      filename: "component-meta.d.ts",
       getContents: () =>
         [
           "import type { ComponentData } from '#sse-nui/component-meta'",
@@ -227,16 +227,16 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.alias = nuxt.options.alias || {};
     nuxt.options.alias["#sse-nui/component-meta"] = join(
       nuxt.options.buildDir,
-      "sse-component-meta.mjs"
+      "component-meta.mjs"
     );
     nuxt.options.alias["#sse-nui/component-meta/types"] = join(
       nuxt.options.buildDir,
-      "sse-component-meta.d.ts"
+      "component-meta.d.ts"
     );
 
     nuxt.hook("prepare:types", ({ tsConfig, references }) => {
       references.push({
-        path: join(nuxt.options.buildDir, "sse-component-meta.d.ts"),
+        path: join(nuxt.options.buildDir, "component-meta.d.ts"),
       });
     });
 
@@ -246,7 +246,7 @@ export default defineNuxtModule<ModuleOptions>({
       nitroConfig.virtual = nitroConfig.virtual || {};
       nitroConfig.virtual["#sse-nui/component-meta/nitro"] = () =>
         readFileSync(
-          join(nuxt.options.buildDir, "sse-component-meta.mjs"),
+          join(nuxt.options.buildDir, "component-meta.mjs"),
           "utf-8"
         );
     });
