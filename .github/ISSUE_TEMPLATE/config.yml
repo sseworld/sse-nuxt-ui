@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📚 Nuxt Documentation
+    url: https://sse-docs.netlify.app/
+    about: Check the documentation for usage of SSE Nuxt UI
+  - name: 💬 Discussions
+    url: https://github.com/sseworld/sse-nuxt-ui/discussions
+    about: Use discussions if you have another issue, an idea for improvement or for asking questions.
