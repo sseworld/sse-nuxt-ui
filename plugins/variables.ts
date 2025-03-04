@@ -31,7 +31,7 @@ export default defineNuxtPlugin(() => {
 
   // SPA mode
   if (
-    process.client &&
+    import.meta.client &&
     nuxtApp.isHydrating &&
     !nuxtApp.payload.serverRendered
   ) {

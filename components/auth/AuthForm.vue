@@ -17,11 +17,11 @@
         </slot>
       </div>
 
-      <p v-if="title || $slots.title" :class="ui.title">
+      <div v-if="title || $slots.title" :class="ui.title">
         <slot name="title">
           {{ title }}
         </slot>
-      </p>
+      </div>
 
       <div v-if="description || $slots.description" :class="ui.description">
         <slot name="description">
@@ -81,6 +81,35 @@
               v-bind="omit(field, ['description', 'help', 'hint', 'size'])"
             />
             <UInput
+              v-else-if="field.type === 'password'"
+              v-model="state[field.name]"
+              :type="passwordVisibility ? 'text' : 'password'"
+              v-bind="
+                omit(field, [
+                  'label',
+                  'description',
+                  'help',
+                  'hint',
+                  'size',
+                  'type',
+                ])
+              "
+              :ui="{ icon: { trailing: { pointer: '' } } }"
+            >
+              <template v-if="passwordToggle" #trailing>
+                <UButton
+                  v-bind="{ ...ui.default.passwordToggle, ...passwordToggle }"
+                  :icon="
+                    passwordVisibility
+                      ? ui.passwordToggle.hideIcon
+                      : ui.passwordToggle.showIcon
+                  "
+                  :padded="false"
+                  @click="togglePasswordVisibility"
+                />
+              </template>
+            </UInput>
+            <UInput
               v-else
               v-model="state[field.name]"
               v-bind="
@@ -100,8 +129,13 @@
           <template v-if="$slots[`${field.name}-help`]" #help>
             <slot :name="`${field.name}-help`" />
           </template>
+          <template v-if="$slots[`${field.name}-error`]" #error>
+            <slot :name="`${field.name}-error`" />
+          </template>
         </UFormGroup>
+
         <slot name="validation" />
+
         <UButton
           type="submit"
           block
@@ -111,21 +145,25 @@
       </UForm>
     </div>
 
-    <p v-if="$slots.footer" :class="ui.footer">
+    <div v-if="$slots.footer" :class="ui.footer">
       <slot name="footer" />
-    </p>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, reactive, computed } from "vue";
 import type { PropType } from "vue";
 import { twJoin } from "tailwind-merge";
 import { omit } from "#ui/utils";
 import type {
   Button,
+  ButtonColor,
+  ButtonVariant,
   FormError,
   FormEventType,
   FormGroupSize,
+  DeepPartial,
 } from "#ui/types";
 
 defineOptions({
@@ -179,6 +217,10 @@ const props = defineProps({
     type: Object as PropType<Button>,
     default: () => ({}),
   },
+  passwordToggle: {
+    type: Object as PropType<Button>,
+    default: () => ({}),
+  },
   schema: {
     type: Object as PropType<any>,
     default: undefined,
@@ -202,7 +244,7 @@ const props = defineProps({
     default: undefined,
   },
   ui: {
-    type: Object as PropType<Partial<typeof config.value>>,
+    type: Object as PropType<DeepPartial<typeof config.value>>,
     default: () => ({}),
   },
 });
@@ -228,9 +270,17 @@ const config = computed(() => {
     providers: "space-y-3",
     form: "space-y-6",
     footer: "text-sm text-gray-500 dark:text-gray-400 mt-2",
+    passwordToggle: {
+      showIcon: "i-heroicons-eye",
+      hideIcon: "i-heroicons-eye-slash",
+    },
     default: {
       submitButton: {
         label: "Continue",
+      },
+      passwordToggle: {
+        color: "gray" as ButtonColor,
+        variant: "link" as ButtonVariant,
       },
     },
   };
@@ -252,6 +302,12 @@ const state = reactive(
     return acc;
   }, {} as Record<string, any>)
 );
+
+const passwordVisibility = ref(false);
+
+function togglePasswordVisibility() {
+  passwordVisibility.value = !passwordVisibility.value;
+}
 
 // Expose
 

@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { defineNuxtConfig } from "nuxt/config"
 import { createResolver } from "@nuxt/kit";
 const { resolve } = createResolver(import.meta.url);
 
@@ -7,8 +8,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   alias: {
     "#sse-nui": resolve("./"),
-    "#sse-nui/auth": resolve("./modules/auth/runtime/types/index"),
-    "#sse-nui/dayjs": resolve("./modules/dayjs/runtime/composables/dayjs"),
   },
   components: [{ path: "#sse-nui/components", prefix: "U", pathPrefix: false }],
   css: ["#sse-nui/assets/css/main.css"],

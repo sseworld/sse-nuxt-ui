@@ -50,7 +50,10 @@
         <slot />
       </div>
 
-      <div v-if="authors?.length || date" :class="ui.authors.wrapper">
+      <div
+        v-if="authors?.length || $slots.authors || date || $slots.date"
+        :class="ui.authors.wrapper"
+      >
         <slot name="authors">
           <UAvatarGroup v-if="authors?.length">
             <UAvatar
@@ -85,9 +88,9 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
 import { twJoin } from "tailwind-merge";
-import { nuxtLinkProps, getNuxtLinkProps } from "#ui/utils";
 import { getSlotChildrenText } from "../../lib/slots";
-import type { Avatar, Badge } from "#ui/types";
+import { nuxtLinkProps, getNuxtLinkProps } from "#ui/utils";
+import type { Avatar, AvatarSize, Badge, DeepPartial } from "#ui/types";
 import type { NuxtLinkProps } from "#app";
 
 defineOptions({
@@ -136,7 +139,7 @@ const props = defineProps({
     default: undefined,
   },
   ui: {
-    type: Object as PropType<Partial<typeof config.value>>,
+    type: Object as PropType<DeepPartial<typeof config.value>>,
     default: () => ({}),
   },
 });
@@ -170,7 +173,7 @@ const config = computed(() => {
       wrapper: "relative flex items-center gap-x-3 mt-4",
       avatar: {
         base: "relative ring-1 lg:hover:scale-105 lg:hover:ring-primary-500 dark:lg:hover:ring-primary-400 transition-transform",
-        size: "xs" as const,
+        size: "xs" as AvatarSize,
       },
     },
   };
@@ -199,7 +202,7 @@ const datetime = computed(() => {
 
   try {
     return new Date(props.date).toISOString();
-  } catch (e) {
+  } catch {
     return undefined;
   }
 });

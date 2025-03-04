@@ -1,3 +1,3 @@
 body {
-    @apply antialiased font-sans text-foreground bg-background;
+  @apply antialiased font-sans text-foreground bg-background;
 }

@@ -33,6 +33,7 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
 import { useBreakpoints, breakpointsTailwind } from "@vueuse/core";
+import type { DeepPartial } from "#ui/types";
 
 const config = {
   wrapper: "flex-col items-stretch relative w-full",
@@ -92,15 +93,14 @@ const props = defineProps({
     default: undefined,
   },
   ui: {
-    type: Object as PropType<Partial<typeof config>>,
+    type: Object as PropType<DeepPartial<typeof config>>,
     default: () => ({}),
   },
 });
 
 const emit = defineEmits(["update:modelValue"]);
 
-// @ts-ignore
-const id = props.id ? `dashboard:panel:${props.id}` : useId("$dashboard:panel");
+const id = props.id ? `dashboard:panel:${props.id}` : useId();
 const { ui, attrs } = useUI(
   "dashboard.panel",
   toRef(props, "ui"),
@@ -109,12 +109,12 @@ const { ui, attrs } = useUI(
   true
 );
 const { el, width, onDrag, isDragging } = props.resizable
-  ? useResizable(id, {
+  ? useResizable(id || "dashboard:panel", {
       ...(typeof props.resizable === "object" ? props.resizable : {}),
       value: props.width,
     })
   : {
-      el: undefined,
+      el: ref(undefined),
       width: toRef(props.width),
       onDrag: undefined,
       isDragging: undefined,
@@ -132,9 +132,11 @@ const isOpen = computed({
       : isDashboardSidebarSlideoverOpen.value;
   },
   set(value) {
-    props.modelValue !== undefined
-      ? emit("update:modelValue", value)
-      : (isDashboardSidebarSlideoverOpen.value = value);
+    if (props.modelValue !== undefined) {
+      emit("update:modelValue", value);
+    } else {
+      isDashboardSidebarSlideoverOpen.value = value;
+    }
   },
 });
 

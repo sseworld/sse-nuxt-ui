@@ -1,8 +1,8 @@
 {
   "name": "@sse-ui/nuxt",
-  "version": "3.2.2",
+  "version": "4.0.0",
   "type": "module",
-  "packageManager": "npm@10.8.1",
+  "packageManager": "yarn@1.22.22",
   "main": "./nuxt.config.ts",
   "license": "MIT",
   "files": [
@@ -22,25 +22,21 @@
     "dev": "DEV=true nuxi dev .docs",
     "build": "nuxi generate",
     "play": "nuxi dev .playground",
-    "prepare1": "nuxi prepare",
+    "postinstall": "nuxi prepare",
     "lint": "eslint .",
     "typecheck": "nuxi typecheck"
   },
   "dependencies": {
-    "@nuxt/test-utils": "latest",
+    "@iconify-json/vscode-icons": "^1.2.16",
     "@nuxt/ui": "latest",
-    "@vue/test-utils": "latest",
     "@vueuse/core": "latest",
-    "dayjs": "latest",
     "defu": "latest",
     "git-url-parse": "latest",
     "nuxt": "latest",
     "ofetch": "latest",
+    "parse-git-config": "^3.0.0",
     "pathe": "latest",
-    "release-it": "latest",
     "tailwind-merge": "latest",
-    "vue": "latest",
-    "vue-component-meta": "latest",
     "vue3-smooth-dnd": "latest"
   },
   "devDependencies": {

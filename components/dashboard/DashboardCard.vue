@@ -64,8 +64,8 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
 import { twMerge } from "tailwind-merge";
-import { card as cardConfig } from "#ui/ui.config";
-import type { Button } from "#ui/types";
+import type { card as cardConfig } from "#ui/ui.config";
+import type { Button, DeepPartial } from "#ui/types";
 
 const slots = useSlots();
 
@@ -115,7 +115,9 @@ const props = defineProps({
     default: undefined,
   },
   ui: {
-    type: Object as PropType<Partial<typeof config.value & typeof cardConfig>>,
+    type: Object as PropType<
+      DeepPartial<typeof config.value & typeof cardConfig>
+    >,
     default: () => ({}),
   },
 });

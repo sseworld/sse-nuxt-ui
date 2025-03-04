@@ -3,9 +3,9 @@
     <UButton
       :icon="isDark ? appConfig.ui.icons.dark : appConfig.ui.icons.light"
       v-bind="{
-          ...($ui?.button?.secondary as any),
-          ...$attrs
-        }"
+        ...($ui?.button?.secondary as any),
+        ...$attrs
+      }"
       :aria-label="`Switch to ${isDark ? 'light' : 'dark'} mode`"
       @click="isDark = !isDark"
     />

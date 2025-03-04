@@ -29,7 +29,7 @@ export function useSharedMouseInElement(
         if (
           Math.abs(eX) > 1500 ||
           Math.abs(eY) > 1500 ||
-          defaultWindow!.screen.width <= 800
+          defaultWindow!.screen?.width <= 800
         ) {
           return;
         }
