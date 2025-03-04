@@ -51,15 +51,19 @@
 
     <template v-if="orientation === 'vertical'">
       <div :class="ui.amount.base">
-        <p v-if="discount && price" :class="ui.amount.discount">
-          {{ price }}
-        </p>
-        <p :class="ui.amount.price">
-          {{ discount || price || "&nbsp;" }}
-        </p>
-        <p v-if="cycle" :class="ui.amount.cycle">
-          {{ cycle }}
-        </p>
+        <slot name="amount">
+          <p v-if="discount && price" :class="ui.amount.discount">
+            {{ price }}
+          </p>
+          <p :class="ui.amount.price">
+            {{ discount || price || "&nbsp;" }}
+          </p>
+          <slot name="cycle">
+            <p v-if="cycle" :class="ui.amount.cycle">
+              {{ cycle }}
+            </p>
+          </slot>
+        </slot>
       </div>
 
       <div
@@ -91,15 +95,19 @@
         v-if="orientation === 'horizontal'"
         :class="[ui.amount.base, align === 'top' && 'order-last']"
       >
-        <p v-if="discount && price" :class="ui.amount.discount">
-          {{ price }}
-        </p>
-        <p :class="ui.amount.price">
-          {{ discount || price || "&nbsp;" }}
-        </p>
-        <p v-if="cycle" :class="ui.amount.cycle">
-          {{ cycle }}
-        </p>
+        <slot name="amount">
+          <p v-if="discount && price" :class="ui.amount.discount">
+            {{ price }}
+          </p>
+          <p :class="ui.amount.price">
+            {{ discount || price || "&nbsp;" }}
+          </p>
+          <slot name="cycle">
+            <p v-if="cycle" :class="ui.amount.cycle">
+              {{ cycle }}
+            </p>
+          </slot>
+        </slot>
       </div>
 
       <UButton
@@ -122,8 +130,8 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
 import { twJoin } from "tailwind-merge";
-import type { Badge, Button } from "#ui/types";
-import { card as cardConfig } from "#ui/ui.config";
+import type { Badge, Button, DeepPartial } from "#ui/types";
+import type { card as cardConfig } from "#ui/ui.config";
 
 defineOptions({
   inheritAttrs: false,
@@ -183,7 +191,9 @@ const props = defineProps({
     default: undefined,
   },
   ui: {
-    type: Object as PropType<Partial<typeof config.value & typeof cardConfig>>,
+    type: Object as PropType<
+      DeepPartial<typeof config.value & typeof cardConfig>
+    >,
     default: () => ({}),
   },
 });

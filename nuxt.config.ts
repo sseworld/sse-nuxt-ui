@@ -7,10 +7,10 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
   alias: {
-    "#sse-nui": resolve("./"),
+    "#sse-ui": resolve("./"),
   },
-  components: [{ path: "#sse-nui/components", prefix: "U", pathPrefix: false }],
-  css: ["#sse-nui/assets/css/main.css"],
+  components: [{ path: "#sse-ui/components", prefix: "U", pathPrefix: false }],
+  css: ["#sse-ui/assets/css/main.css"],
 
   vite: {
     optimizeDeps: {

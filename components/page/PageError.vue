@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
 import type { NuxtError } from "#app";
-import type { Button } from "#ui/types";
+import type { Button, ButtonColor, ButtonSize, DeepPartial } from "#ui/types";
 
 const config = {
   wrapper:
@@ -38,8 +38,8 @@ const config = {
   default: {
     clearButton: {
       label: "Go back home",
-      color: "primary" as const,
-      size: "lg" as const,
+      color: "primary" as ButtonColor,
+      size: "lg" as ButtonSize,
     },
   },
 };
@@ -74,7 +74,7 @@ const props = defineProps({
     default: undefined,
   },
   ui: {
-    type: Object as PropType<Partial<typeof config>>,
+    type: Object as PropType<DeepPartial<typeof config>>,
     default: () => ({}),
   },
 });

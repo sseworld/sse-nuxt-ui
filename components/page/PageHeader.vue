@@ -51,7 +51,7 @@
 
 <script setup lang="ts">
 import type { PropType } from "vue";
-import type { Button } from "#ui/types";
+import type { Button, DeepPartial } from "#ui/types";
 
 const config = {
   wrapper: "relative border-b border-gray-200 dark:border-gray-800 py-8",
@@ -98,7 +98,7 @@ const props = defineProps({
     default: undefined,
   },
   ui: {
-    type: Object as PropType<Partial<typeof config>>,
+    type: Object as PropType<DeepPartial<typeof config>>,
     default: () => ({}),
   },
 });

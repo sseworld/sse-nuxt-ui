@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
 import type { DeepPartial } from "#ui/types";
-import type { AsideLink } from "#sse-nui/types";
+import type { AsideLink } from "#sse-ui/types";
 
 const config = {
   wrapper:

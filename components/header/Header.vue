@@ -95,7 +95,8 @@ import {
   provideUseId,
 } from "@headlessui/vue";
 import { getSlotChildrenText } from "../../lib/slots";
-import type { HeaderLink } from "#sse-nui/types";
+import type { DeepPartial } from "#ui/types";
+import type { HeaderLink } from "#sse-ui/types";
 import { useId } from "#imports";
 
 const appConfig = useAppConfig();
@@ -144,7 +145,7 @@ const props = defineProps({
     default: undefined,
   },
   ui: {
-    type: Object as PropType<Partial<typeof config.value>>,
+    type: Object as PropType<DeepPartial<typeof config.value>>,
     default: () => ({}),
   },
 });
@@ -176,5 +177,5 @@ watch(
   }
 );
 
-provideUseId(() => useId());
+provideUseId(() => useId() as string);
 </script>

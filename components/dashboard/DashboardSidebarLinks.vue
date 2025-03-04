@@ -211,7 +211,7 @@ import type {
   Strategy,
   DeepPartial,
 } from "#ui/types";
-import type { DashboardSidebarLink } from "#sse-nui/types";
+import type { DashboardSidebarLink } from "#sse-ui/types";
 import { useId } from "#imports";
 
 const appConfig = useAppConfig();
