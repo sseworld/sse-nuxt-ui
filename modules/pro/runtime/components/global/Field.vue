@@ -1,71 +1,33 @@
 <template>
-    <div :class="ui.wrapper" v-bind="attrs">
-        <div :class="ui.container">
-            <div :class="ui.label">
-                <span :class="ui.name">{{ name }}</span>
-                <span v-if="required" :class="ui.required">required</span>
-            </div>
-
-            <div v-if="type" :class="ui.type">
-                {{ type }}
-            </div>
-        </div>
-
-        <div v-if="$slots.default || description" :class="ui.description">
-            <slot>
-                {{ description }}
-            </slot>
-        </div>
-    </div>
+  <div :class="ui.wrapper" v-bind="attrs">
+    <slot />
+  </div>
 </template>
 
 <script setup lang="ts">
-import type { PropType } from 'vue'
+import type { PropType } from "vue";
 
 const config = {
-    wrapper: 'mt-5',
-    container: 'flex items-start gap-x-2.5 font-mono text-sm',
-    name: 'rounded-md font-semibold text-primary',
-    required: 'text-gray-500 dark:text-gray-400',
-    type: 'text-right',
-    label: 'flex flex-1 gap-x-2.5',
-    description: 'mt-3 mb-0 text-gray-600 dark:text-gray-300 text-sm space-y-3'
-}
+  wrapper:
+    "mt-5 space-y-5 divide-y divide-gray-200 dark:divide-gray-800 [&>div]:pt-5 [&>div:first-child]:pt-0 [&>div:first-child]:mt-0",
+};
 
 defineOptions({
-    inheritAttrs: false
-})
+  inheritAttrs: false,
+});
 
 const props = defineProps({
-    name: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        default: undefined
-    },
-    type: {
-        type: String,
-        default: undefined
-    },
-    required: {
-        type: Boolean,
-        default: false
-    },
-    default: {
-        type: String,
-        default: undefined
-    },
-    class: {
-        type: [String, Object, Array] as PropType<any>,
-        default: undefined
-    },
-    ui: {
-        type: Object as PropType<Partial<typeof config>>,
-        default: () => ({})
-    }
-})
+  class: {
+    type: [String, Object, Array] as PropType<any>,
+    default: undefined,
+  },
+});
 
-const { ui, attrs } = useUI('content.field', toRef(props, 'ui'), config, toRef(props, 'class'), true)
+const { ui, attrs } = useUI(
+  "content.fieldGroup",
+  undefined,
+  config,
+  toRef(props, "class"),
+  true
+);
 </script>

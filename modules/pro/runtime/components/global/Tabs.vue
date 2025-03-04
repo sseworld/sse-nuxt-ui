@@ -78,7 +78,6 @@ const rerenderCounter = ref(1);
 // Computed
 
 const tabs = computed(() => {
-  rerenderCounter.value;
   return (
     slots.default?.().map((slot, index) => {
       return {

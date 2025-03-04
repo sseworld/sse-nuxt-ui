@@ -6,7 +6,7 @@ function findHashPosition(
   const el = document.querySelector(hash);
   // vue-router does not incorporate scroll-margin-top on its own.
   if (el) {
-    const top = parseFloat(getComputedStyle(el).scrollMarginTop);
+    const top = Number.parseFloat(getComputedStyle(el).scrollMarginTop);
 
     return {
       el: hash,
@@ -54,7 +54,11 @@ export default <RouterConfig>{
       });
     }
 
-    // Scroll to top of window
-    return { top: 0 };
+    // Scroll to top of window after page loaded
+    return new Promise((resolve) => {
+      nuxtApp.hooks.hookOnce("page:finish", () => {
+        setTimeout(() => resolve({ top: 0 }), 50);
+      });
+    });
   },
 };

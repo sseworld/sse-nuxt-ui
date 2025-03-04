@@ -16,8 +16,8 @@ export interface ModuleOptions {
 
 export default defineNuxtModule({
   meta: {
-    name: "sse-nui",
-    configKey: "sseNUi",
+    name: "sse-ui",
+    configKey: "sseUI",
     compatibility: {
       nuxt: "^3.10.0",
     },

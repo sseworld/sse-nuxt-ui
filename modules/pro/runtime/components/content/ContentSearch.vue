@@ -29,9 +29,9 @@ import type { PropType } from "vue";
 import { defu } from "defu";
 import { useBreakpoints, breakpointsTailwind } from "@vueuse/core";
 import type { ParsedContent, NavItem, MarkdownNode } from "@nuxt/content";
-import type { Group, Command } from "#ui/types";
-import type { ContentSearchLink } from "#sse-nui/types";
 import type { UseFuseOptions } from "@vueuse/integrations/useFuse";
+import type { Group, Command } from "#ui/types";
+import type { ContentSearchLink } from "#sse-ui/types";
 
 defineOptions({
   inheritAttrs: false,
@@ -54,7 +54,6 @@ const config = computed(() => ({
     },
     group: {
       command: {
-        // eslint-disable-next-line quotes
         prefix: `!text-foreground after:content-['_>']`,
       },
     },
@@ -149,9 +148,11 @@ const isOpen = computed({
       : isContentSearchModalOpen.value;
   },
   set(value) {
-    props.modelValue !== undefined
-      ? emit("update:modelValue", value)
-      : (isContentSearchModalOpen.value = value);
+    if (props.modelValue !== undefined) {
+      emit("update:modelValue", value);
+    } else {
+      isContentSearchModalOpen.value = value;
+    }
   },
 });
 

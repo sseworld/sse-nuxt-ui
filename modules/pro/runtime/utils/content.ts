@@ -1,6 +1,6 @@
 import { splitByCase, upperFirst } from "scule";
 import type { NavItem, ParsedContent } from "@nuxt/content";
-import type { NavigationTree } from "#sse-nui/types";
+import type { NavigationTree } from "#sse-ui/types";
 
 export function mapContentNavigation(
   navigation: NavItem[],

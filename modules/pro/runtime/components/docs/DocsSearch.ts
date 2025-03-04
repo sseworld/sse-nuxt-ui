@@ -6,7 +6,7 @@ import ContentSearch from "../content/ContentSearch.vue";
  */
 export default (_: any, context: any) => {
   console.warn(
-    "[@sseui/nuxt] `DocsSearch` is deprecated, use `ContentSearch` instead."
+    "[@sse-ui/nuxt] `DocsSearch` is deprecated, use `ContentSearch` instead."
   );
 
   return h(ContentSearch, context.attrs, context.slots);
