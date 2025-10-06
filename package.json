@@ -1,58 +1,20 @@
 {
   "name": "@sse-ui/nuxt",
-  "version": "4.0.0-alpha-1",
-  "type": "module",
-  "packageManager": "yarn@1.22.22",
-  "main": "./nuxt.config.ts",
+  "version": "4.0.0",
+  "description": "Ship beautiful web applications at the speed of light with SSE Nuxt UI.",
+  "homepage": "https://github.com/sseworld/sse-nuxt-ui#readme",
+  "bugs": {
+    "url": "https://github.com/sseworld/sse-nuxt-ui/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sseworld/sse-nuxt-ui.git"
+  },
   "license": "MIT",
-  "files": [
-    "app",
-    "assets",
-    "components",
-    "composables",
-    "lib",
-    "modules",
-    "plugins",
-    "types",
-    "app.config.ts",
-    "nuxt.config.ts",
-    "tailwind.config.ts"
-  ],
+  "author": "SSE World",
+  "type": "module",
+  "main": "index.js",
   "scripts": {
-    "dev": "DEV=true nuxi dev .docs",
-    "build": "nuxi generate",
-    "play": "nuxi dev .playground",
-    "postinstall": "nuxi prepare",
-    "lint": "eslint .",
-    "typecheck": "nuxi typecheck"
-  },
-  "dependencies": {
-    "@iconify-json/vscode-icons": "^1.2.16",
-    "@nuxt/ui": "latest",
-    "@vueuse/core": "latest",
-    "defu": "latest",
-    "git-url-parse": "latest",
-    "nuxt": "latest",
-    "ofetch": "latest",
-    "parse-git-config": "^3.0.0",
-    "pathe": "latest",
-    "tailwind-merge": "latest",
-    "vue3-smooth-dnd": "latest"
-  },
-  "devDependencies": {
-    "@nuxt/content": "^2.13.4",
-    "@nuxt/eslint-config": "latest",
-    "@nuxt/image": "latest",
-    "@types/node": "latest",
-    "eslint": "latest",
-    "happy-dom": "latest",
-    "typescript": "latest",
-    "vitest": "latest",
-    "vitest-environment-nuxt": "latest",
-    "vue-tsc": "latest",
-    "zod": "latest"
-  },
-  "resolutions": {
-    "@sse-ui/nuxt": "workspace:*"
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
