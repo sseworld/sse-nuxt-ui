@@ -10,7 +10,7 @@ import {
 import type { HookResult } from "@nuxt/schema";
 import "node:url";
 import "scule";
-import { addTemplates } from "./template";
+import { addTemplates, icons, name, version } from "./template";
 
 export interface ModuleOptions {
   /**
@@ -25,7 +25,6 @@ export interface ModuleOptions {
   content?: boolean;
 }
 
-
 declare module "#app" {
   interface RuntimeNuxtHooks {
     "dashboard:search:toggle": () => HookResult;
@@ -33,36 +32,6 @@ declare module "#app" {
     "dashboard:sidebar:collapse": (value: boolean) => HookResult;
   }
 }
-
-const icons = {
-  arrowUp: "i-lucide-arrow-up",
-  arrowDown: "i-lucide-arrow-down",
-  caution: "i-lucide-circle-alert",
-  copy: "i-lucide-copy",
-  copyCheck: "i-lucide-copy-check",
-  dark: "i-lucide-moon",
-  error: "i-lucide-circle-x",
-  eye: "i-lucide-eye",
-  eyeOff: "i-lucide-eye-off",
-  file: "i-lucide-file-text",
-  folder: "i-lucide-folder",
-  folderOpen: "i-lucide-folder-open",
-  hash: "i-lucide-hash",
-  info: "i-lucide-info",
-  light: "i-lucide-sun",
-  menu: "i-lucide-menu",
-  panelClose: "i-lucide-panel-left-close",
-  panelOpen: "i-lucide-panel-left-open",
-  reload: "i-lucide-rotate-ccw",
-  stop: "i-lucide-square",
-  success: "i-lucide-circle-check",
-  system: "i-lucide-monitor",
-  tip: "i-lucide-lightbulb",
-  warning: "i-lucide-triangle-alert"
-};
-
-const name = "@sse-ui/nuxt";
-const version = "3.3.6";
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {

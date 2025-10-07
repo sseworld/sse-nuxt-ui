@@ -16,8 +16,8 @@ import type {
 type AuthForm = ComponentConfig<
   typeof theme,
   AppConfig,
-  "authForm",
-  "sseUiPro"
+  "authForm"
+  // "sseUiPro"
 >;
 
 type AuthFormField = FormFieldProps & {
@@ -110,7 +110,7 @@ export type AuthFormSlots<
   DynamicFormFieldSlots<T>;
 </script>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { reactive, ref, computed, useTemplateRef } from "vue";
 import { Primitive } from "reka-ui";
 import { omit } from "@nuxt/ui/utils";
@@ -118,6 +118,7 @@ import { useAppConfig } from "#imports";
 import { tv } from "../utils/tv";
 
 const props = defineProps<AuthFormProps>();
+
 const state = reactive(
   (props.fields || []).reduce((acc: Record<string, any>, field) => {
     if (field.name) {
@@ -130,9 +131,12 @@ const state = reactive(
 defineEmits<AuthFormEmits<any>>();
 const slots = defineSlots<AuthFormSlots>();
 const { t } = useLocalePro();
-const appConfig = useAppConfig();
+
+const appConfig = useAppConfig() as AuthForm["AppConfig"];
+
 const formRef = useTemplateRef("formRef");
 const passwordVisibility = ref(false);
+
 const ui = computed(() =>
   tv({ extend: tv(theme), ...(appConfig.sseUiPro?.authForm || {}) })(),
 );
@@ -341,7 +345,7 @@ defineExpose({
 
         <slot v-if="!!slots.validation" name="validation" />
 
-        <slot name="submit" :loading="loading">
+        <slot name="submit" :loading="loading as boolean">
           <UButton
             type="submit"
             :label="t('authForm.submit')"
